@@ -15,9 +15,9 @@ const Login: React.FC = () => {
       // Call the login API
       const response = await login(username, password);
       if (response && response.message === 'Login successful') {
-          // Login successful
-          console.log('Login successful');
-          navigate('/todos');
+        // Login successful
+        console.log('Login successful');
+        navigate('/todos');
       } else {
         // No response received
         console.log('Please provide proper credentials');
@@ -28,9 +28,10 @@ const Login: React.FC = () => {
       // Handle error, show error message, etc.
     }
   };
-  
 
-
+  const handleSignup = () => {
+    navigate('/registration');
+  };
 
   return (
     <div>
@@ -45,8 +46,11 @@ const Login: React.FC = () => {
             <label className="form-label">Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id='pass' />
           </div>
-          <button type="submit">Login</button>
+          <div><button type="submit">Login</button></div>
+          <div><button style={{ margin : "0.5rem" }} type="button" onClick={handleSignup}>SignUp</button>
         </div>
+        </div>
+        
       </form>
     </div>
   );
