@@ -1,5 +1,5 @@
 <!-- Running backend -->
-run backend on terminal - npm install and npm run dev. running on port 5713 
+run backend on terminal - npm install and npm run dev. 
 <!-- Running frontend -->
 run frontend TodoList on terminal - npm install and npm run dev. running on port 3000
 
