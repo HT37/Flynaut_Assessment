@@ -1,10 +1,13 @@
 import React, { useState } from 'react';    
 import { createtodo } from './api/api';
+import { useNavigate } from 'react-router-dom';
 
 
 export const AddTodo: React.FC = () => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+
+    const navigate = useNavigate();
 
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -29,6 +32,10 @@ export const AddTodo: React.FC = () => {
           }
         }
       };
+
+    const exit = () => {
+        navigate('/');
+      };
       
 
     return (
@@ -43,7 +50,8 @@ export const AddTodo: React.FC = () => {
                     <label htmlFor="desc" className="form-label">Todo Description</label>
                     <input type="text" value={desc} onChange={(e) => setDesc(e.target.value)} className="form-control" id="desc" />
                 </div>
-                <button type="submit" className="btn btn-sm btn-success">Add Todo</button>
+                <div><button type="submit" className="btn btn-sm btn-success">Add Todo</button></div>
+                <div><button type="button" style={{padding:"0.25rem", marginTop:"5px"}} onClick={exit}>Exit</button></div>
             </form>
         </div>
     );
